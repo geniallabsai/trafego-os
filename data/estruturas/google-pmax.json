@@ -1,0 +1,55 @@
+{
+  "estrutura": "GOOGLE-PMAX",
+  "versao": "1.1",
+  "quando_usar": "EC com catalogo; expandir alem de Search para video/discovery; 1 PMax por oferta",
+  "conta": {
+    "conversoes": "Purchase com VALOR (importadas)",
+    "janela_atribuicao": "cravada (padrao house: last non-direct click 7d/view 1d)"
+  },
+  "campanhas": [
+    {
+      "nome": "PMAX-{{OFERTA}}-{{YYMM}}",
+      "orcamento_diario": "{{BUDGET}}",
+      "exclusoes": [
+        "search keywords das campanhas SEARCH ativas",
+        "publicos negativos (lista de clientes) se decidido por oferta"
+      ],
+      "asset_groups": [
+        {
+          "tema": "principal",
+          "headlines": 15,
+          "descriptions": 5,
+          "imagens": 10,
+          "logos": 1
+        },
+        {
+          "tema": "mecanismo/prova",
+          "headlines": 15,
+          "descriptions": 5,
+          "imagens": 10
+        },
+        {
+          "tema": "oferta/urgencia",
+          "headlines": 15,
+          "descriptions": 5,
+          "imagens": 10
+        }
+      ]
+    }
+  ],
+  "bid_timeline": {
+    "semanas_1_4": "MAXIMIZE_CONVERSIONS (volume)",
+    "apos_30conv_30d": "tROAS iniciando em ROAS_observed*0.9",
+    "ajuste_max": "15% por vez, janela 72h, DEC registrada"
+  },
+  "rotina": [
+    "feed sincronizado diariamente (SKU/preco/disponibilidade)",
+    "search terms + asset report semanais (04)",
+    "divisao PMax x SEARCH por CAC por superficie (DEC)"
+  ],
+  "erros_mortais": [
+    "multi-oferta em 1 PMax",
+    "tROAS de sonho no dia 1",
+    "assets genericos sem tema"
+  ]
+}

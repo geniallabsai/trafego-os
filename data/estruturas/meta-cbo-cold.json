@@ -1,0 +1,78 @@
+{
+  "estrutura": "META-CBO-ESCALA",
+  "versao": "1.1",
+  "quando_usar": "oferta validada, objetivo escalar com entrega estável",
+  "conta": {
+    "objetivo_otimizacao": "SALES",
+    "evento_valor": "PURCHASE (CAPI validada)",
+    "moeda": "{{MOEDA}}"
+  },
+  "campanhas": [
+    {
+      "nome": "CAMP-COLD-{{OFERTA}}-{{YYMM}}",
+      "orcamento_diario": "{{BUDGET_COLD}}",
+      "bid_strategy": "LOWEST_COST -> COST_CAP (após 30 conv/semana; cap = CPA_alvo*1.2)",
+      "adsets": [
+        {
+          "nome": "AS-COLD-AMPLA-{{YYMM}}",
+          "publico": "AMPLA/Advantage+ (sem interesses)",
+          "ads_min": 3,
+          "ads_max": 5,
+          "lote": "R3: 1 big idea x 3-5 hooks"
+        },
+        {
+          "nome": "AS-COLD-CLUSTER-{{INTERESSE}}-{{YYMM}}",
+          "condicao": "somente se AMPLA perder após 14d (DEC)",
+          "publico": "1 cluster de interesse alto",
+          "ads_min": 3
+        }
+      ]
+    },
+    {
+      "nome": "CAMP-WARM-{{OFERTA}}-{{YYMM}}",
+      "orcamento_diario": "{{BUDGET_WARM}}",
+      "bid_strategy": "LOWEST_COST",
+      "adsets": [
+        {
+          "nome": "AS-WARM-COMBO-{{YYMM}}",
+          "publico": "engajamento 30d + video 25-97% + site 7d nao-comprador",
+          "ads_min": 2,
+          "ads_max": 3,
+          "lote": "prova + objecao"
+        }
+      ]
+    },
+    {
+      "nome": "CAMP-HOT-{{OFERTA}}-{{YYMM}}",
+      "orcamento_diario": "{{BUDGET_HOT}}",
+      "bid_strategy": "LOWEST_COST",
+      "adsets": [
+        {
+          "nome": "AS-HOT-URG-{{YYMM}}",
+          "publico": "carrinho 7d + checkout 7d + lead 3d",
+          "ads_min": 1,
+          "ads_max": 2,
+          "lote": "urgencia c/ motivo + garantia"
+        }
+      ]
+    }
+  ],
+  "regras": [
+    "mudancas de budget +-20%/dia",
+    "1 conta por cliente",
+    "naming house obrigatoria",
+    "pause ad: fatigue<0.7 OU CPA>1.5x por 48h",
+    "escala: ROAS>=BE 3d e CPA<=1.2x alvo -> +20%/dia"
+  ],
+  "critorios_pausa_campanha": [
+    "sem vencedor em 14d",
+    "CPA > 2x alvo por 7d"
+  ],
+  "premissas_forecast": {
+    "cpm": "{{CPM_ORIGEM_R8}}",
+    "ctr": "{{CTR_ORIGEM_R8}}",
+    "cvr": "{{CVR_ORIGEM_R8}}",
+    "ticket": "{{TICKET}}",
+    "margem": "{{MARGEN}}"
+  }
+}

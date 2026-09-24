@@ -1,0 +1,62 @@
+{
+  "estrutura": "GOOGLE-SEARCH",
+  "versao": "1.1",
+  "quando_usar": "defesa de marca (brand) + captura de intencao ativa (non-brand); sempre separadas",
+  "campanhas": [
+    {
+      "nome": "SEARCH-BRAND-{{YYMM}}",
+      "matches": [
+        "exatas",
+        "frases curtas"
+      ],
+      "orcamento_diario": "{{BUDGET_BRAND}}",
+      "adgroups": [
+        {
+          "nome": "BRAND-MARCAS-{{YYMM}}",
+          "keywords": "[marca] + variacoes",
+          "rsas": "promessa + prova + CTA defensivo"
+        }
+      ]
+    },
+    {
+      "nome": "SEARCH-NONBRAND-{{TEMA}}-{{YYMM}}",
+      "matches": [
+        "exatas",
+        "frases (broad so com negativas sob controle)"
+      ],
+      "orcamento_diario": "{{BUDGET_NB}}",
+      "regra_adgroup": "1 tema <= 15 keywords relacionadas",
+      "adgroups": [
+        {
+          "nome": "ASG-DOR-{{YYMM}}"
+        },
+        {
+          "nome": "ASG-COMPARACAO-{{YYMM}}"
+        },
+        {
+          "nome": "ASG-COMPRA-DIRETA-{{YYMM}}"
+        }
+      ],
+      "rsas_por_tema": {
+        "headlines": "15 x 30ch (message match com o tema)",
+        "descriptions": "4 x 90ch",
+        "cta": "dominante"
+      }
+    }
+  ],
+  "bid": {
+    "brand": "maximo com teto",
+    "nonbrand": "maximize conversions c/ valor -> tCPA apos 15-30 conv/30d"
+  },
+  "rotina": [
+    "negativas TODA semana (search terms, agente 04)",
+    "QS medio < 6 por 2 semanas -> revisar keywords/RSAs",
+    "landing: message match + LCP < 2.5s",
+    "auction insights em disputa de marca"
+  ],
+  "erros_mortais": [
+    "broad sem rotina de negativas",
+    "adgroup-sopa (multi-tema)",
+    "brand e nonbrand juntas"
+  ]
+}

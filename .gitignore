@@ -1,0 +1,19 @@
+# segredos
+config/.env
+config/mcp.local.json
+*.local.env
+
+# dados (bruto e processado saem do versionamento; exemplos ficam)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# sistema
+.DS_Store
+Thumbs.db

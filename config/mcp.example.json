@@ -1,0 +1,31 @@
+{
+  "_nota": "Exemplo. Ajuste 'command'/'args' ao servidor MCP que você roda (confira versões atuais). As variáveis ${...} resolvem contra config/.env.",
+  "mcpServers": {
+    "meta-ads": {
+      "command": "npx",
+      "args": ["-y", "@seu-servidor/meta-ads-mcp"],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_SYSTEM_USER_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}"
+      }
+    },
+    "google-ads": {
+      "command": "npx",
+      "args": ["-y", "@seu-servidor/google-ads-mcp"],
+      "env": {
+        "GOOGLE_DEVELOPER_TOKEN": "${GOOGLE_DEVELOPER_TOKEN}",
+        "GOOGLE_OAUTH_CLIENT_ID": "${GOOGLE_OAUTH_CLIENT_ID}",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "${GOOGLE_OAUTH_CLIENT_SECRET}",
+        "GOOGLE_OAUTH_REFRESH_TOKEN": "${GOOGLE_OAUTH_REFRESH_TOKEN}"
+      }
+    },
+    "tiktok-ads": {
+      "command": "npx",
+      "args": ["-y", "@seu-servidor/tiktok-ads-mcp"],
+      "env": {
+        "TIKTOK_ACCESS_TOKEN": "${TIKTOK_ACCESS_TOKEN}",
+        "TIKTOK_ADVERTISER_ID": "${TIKTOK_ADVERTISER_ID}"
+      }
+    }
+  }
+}

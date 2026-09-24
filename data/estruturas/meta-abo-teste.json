@@ -1,0 +1,41 @@
+{
+  "estrutura": "META-ABO-TESTE",
+  "versao": "1.1",
+  "quando_usar": "veredicto controlado de angulo/hook/publico/bid/oferta; SEMPRE com duracao maxima declarada",
+  "campanha": {
+    "nome": "CAMP-TEST-{{OFERTA}}-{{VARIÁVEL}}-{{YYMM}}",
+    "tipo": "ABO",
+    "orcamento_por_adset": "{{X_DIA}} (igual em todos)"
+  },
+  "bracos": [
+    {
+      "adset": "AS-CTRL-{{YYMM}}",
+      "descricao": "controle (variavel vigente)",
+      "ads": 3,
+      "budget": "{{X_DIA}}"
+    },
+    {
+      "adset": "AS-VAR1-{{NOME}}",
+      "descricao": "variacao 1",
+      "ads": 3,
+      "budget": "{{X_DIA}}"
+    },
+    {
+      "adset": "AS-VAR2-{{NOME}}",
+      "descricao": "variacao 2",
+      "ads": 3,
+      "budget": "{{X_DIA}}"
+    }
+  ],
+  "regras": [
+    "1 variavel por teste",
+    "vo simultaneo mesmo horario",
+    "duracao: 5-7 dias OU N conversoes (EXP) — data de morte antes de ligar",
+    "metrica por tipo: criativo=CTR+HCR(leading)/CPA(lagging) | publico=CPA | oferta=CVRxAOV(margen)"
+  ],
+  "veredito": [
+    "superioridade >= 95% OU consistencia 7d c/ amplitude confortavel",
+    "empate tecnico -> custo de producao/escala, documentar",
+    "vencedor -> CBO de escala (nova DEC) | perdedores -> LABORATORIO (05) com motivo"
+  ]
+}
